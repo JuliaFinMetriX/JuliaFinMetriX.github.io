@@ -1,6 +1,13 @@
 TimeData
 ========
 
+Statistics functions
+--------------------
+
+.. function:: movAvg(tm::AbstractTimematr, nPeriods::Integer)
+
+   Calculate moving average.
+
 I/O
 ---
 
