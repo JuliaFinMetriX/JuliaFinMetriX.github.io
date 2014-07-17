@@ -1,6 +1,0 @@
-license title
-=============
-
-this is the license file!
-
-NO WARRANTY!!
