@@ -8,7 +8,7 @@
 #+OPTIONS: title:nil
 #+OPTIONS: email:nil
 #+OPTIONS: timestamp:nil
-#+OPTIONS: toc:yes
+#+OPTIONS: toc:nil
 #+OPTIONS: html-doctype:html5
 
 #+HTML_HEAD: <meta charset='utf-8'>
