@@ -23,7 +23,7 @@
 #+HTML_HEAD_EXTRA: <header>
 #+HTML_HEAD_EXTRA:  <div class="inner">
 #+HTML_HEAD_EXTRA:         <h1>JuliaFinMetriX</h1>
-#+HTML_HEAD_EXTRA:         <a href="https://github.com/JuliaFinMetriX/EconDatasets.jl" class="button"><small>View project on</small>GitHub</a>
+#+HTML_HEAD_EXTRA:         <a href="https://github.com/JuliaFinMetriX/JuliaFinMetriX.github.io" class="button"><small>View project on</small>GitHub</a>
 #+HTML_HEAD_EXTRA:       </div>
 #+HTML_HEAD_EXTRA:     </header>
 
@@ -55,7 +55,7 @@ Manual post-processing:
 
 ** Unregistered packages
 - [[http://juliafinmetrix.github.io/EconDatasets.jl/][EconDatasets]]
-- Econometrics
+- [[http://juliafinmetrix.github.io/Econometrics.jl/][Econometrics]]
 
 ** Standard library
 You can find the documentation for the most popular functions at the
