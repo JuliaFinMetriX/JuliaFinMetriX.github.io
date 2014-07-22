@@ -29,6 +29,9 @@ DataFrame extensions
    Return DataFrame with values rounded to two significant digits.
    DataFrame entries must be numeric.
 
+.. function:: @roundDf(expr::Expr)
+
+   Display rounded DataFrame. Works with non numeric values also.
 
 Display functions
 ------------------
@@ -47,6 +50,11 @@ Display functions
 
    Timematr display function in ijulia. Values are rounded due to
    parsimony.
+
+.. function:: @table(title::String, expr::Union(Expr, Symbol))
+              
+   Display expression or symbol in HTML with blue title header.
+
 
 .. function:: str(tn::AbstractTimedata)
 
