@@ -147,3 +147,30 @@ I/O
 .. function:: writeTimedata(filename::String, td::AbstractTimedata)
 
    Write TimeData object to csv file.
+
+Join functions
+---
+
+For the case of monotonically increasing index values, join operations
+can be speeded up. The following join implementations exist. All
+return a Timedata object.
+
+.. function:: joinSortedIdx_inner(td1::AbstractTimedata,
+              td2::AbstractTimedata)
+
+   Inner join of object indices.
+
+.. function:: joinSortedIdx_left(td1::AbstractTimedata,
+              td2::AbstractTimedata)
+
+   Left join of object indices.
+   
+.. function:: joinSortedIdx_right(td1::AbstractTimedata,
+              td2::AbstractTimedata)
+
+   Right join of object indices.
+
+.. function:: joinSortedIdx_outer(td1::AbstractTimedata,
+              td2::AbstractTimedata)
+              
+   Outer join of object indices.
