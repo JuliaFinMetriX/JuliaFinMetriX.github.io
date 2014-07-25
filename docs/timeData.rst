@@ -40,13 +40,11 @@ Display functions
 
    Timedata display function in standard REPL.
 
-.. function:: writemime(io::IO, ::MIME"text/html",
-              td::AbstractTimedata)
+.. function:: writemime(io::IO, ::MIME"text/html", td::AbstractTimedata)
 
    Timedata display function in ijulia.
 
-.. function:: writemime(io::IO, ::MIME"text/html",
-              tm::AbstractTimematr)
+.. function:: writemime(io::IO, ::MIME"text/html", tm::AbstractTimematr)
 
    Timematr display function in ijulia. Values are rounded due to
    parsimony.
@@ -149,28 +147,24 @@ I/O
    Write TimeData object to csv file.
 
 Join functions
----
+--------------
 
 For the case of monotonically increasing index values, join operations
 can be speeded up. The following join implementations exist. All
 return a Timedata object.
 
-.. function:: joinSortedIdx_inner(td1::AbstractTimedata,
-              td2::AbstractTimedata)
+.. function:: joinSortedIdx_inner(td1::AbstractTimedata, td2::AbstractTimedata)
 
    Inner join of object indices.
 
-.. function:: joinSortedIdx_left(td1::AbstractTimedata,
-              td2::AbstractTimedata)
+.. function:: joinSortedIdx_left(td1::AbstractTimedata, td2::AbstractTimedata)
 
    Left join of object indices.
    
-.. function:: joinSortedIdx_right(td1::AbstractTimedata,
-              td2::AbstractTimedata)
+.. function:: joinSortedIdx_right(td1::AbstractTimedata, td2::AbstractTimedata)
 
    Right join of object indices.
 
-.. function:: joinSortedIdx_outer(td1::AbstractTimedata,
-              td2::AbstractTimedata)
+.. function:: joinSortedIdx_outer(td1::AbstractTimedata, td2::AbstractTimedata)
               
    Outer join of object indices.
