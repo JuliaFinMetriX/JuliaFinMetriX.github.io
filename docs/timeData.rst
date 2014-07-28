@@ -4,13 +4,21 @@ TimeData
 Access data
 -----------
 
-.. function:: idx(tn::AbstractTimedata)
+.. function:: idx(td::AbstractTimedata)
 
    Get time index as array.
 
-.. function:: names(tn::AbstractTimedata)
+.. function:: names(td::AbstractTimedata)
 
    Get column names.
+
+.. function:: get(td::AbstractTimedata, idx1::Int, idx2::Int)
+
+   Get entry [idx1, idx2] of TimeData object.
+
+   .. function:: get(td::AbstractTimedata)
+
+   Get all entries of TimeData object as Array
 
 DataFrame extensions
 --------------------
