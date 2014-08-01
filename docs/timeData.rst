@@ -24,25 +24,76 @@ Access data
 Basic functions
 ---------------
 
+.. function:: isequal(tn::AbstractTimedata, tn2::AbstractTimedata)
+
+   Test for equal indices, names, types and values. `NA` is equal to
+   `NA`.
+
+.. function:: ==(tn::AbstractTimedata, tn2::AbstractTimedata)
+
+   Test for equal indices, names, types and values. `NA` is not
+   counted as equal to `NA`.
+
 .. function:: isna(td::AbstractTimedata)
 
    Elementwise testing for `NA`. Returns boolean values as Timedata
    object.
-
-.. function:: complete_cases(td::AbstractTimedata)
 
 .. function:: setNA!(td::AbstractTimedata, rowIdx::Int, colIdx::Int)
 
    Set a given entry to `NA`. Could require change of column type to
    `DataArray`. Throws error for `Timematr`.
 
+.. function:: complete_cases(td::AbstractTimedata)
+              
 .. function:: hcat(inst::AbstractTimedata, inst2::AbstractTimedata)
 
-   Horizontally concatenation of TimeData objects. Requires objects to
+   Horizontal concatenation of TimeData objects. Requires objects to
    be of equal type with completely equal time indices. Result will be
    of same type as input arguments.
 
-   
+.. function:: hcat(inst::AbstractTimedata...)
+
+   Variable argument extension of `hcat`.
+
+.. function:: vcat(inst::AbstractTimedata, inst2::AbstractTimedata)
+
+   Vertical concatenation of TimeData objects. Requires objects to be
+   of equal type with equal column names and equal time index types.
+   Result will be of same type as input arguments.
+
+.. function:: vcat(inst::AbstractTimedata...)
+
+   Variable argument extension of `vcat`.
+
+.. function:: narm(td::AbstractTimedata)
+
+   Return copy of td with all rows containing `NA` removed.
+
+.. function:: asArrayOfEqualDimensions(arr::Array,
+              td::AbstractTimedata)
+
+   Extend row or column vector to two-dimensional array through
+   copying values.
+
+.. function:: asTd(arr::Array, td::Timedata)
+
+   Extend  row or column vector to size of `Timedata` object similar
+   to `repmat` and return it as `Timedata` object with equal index and
+   names. 
+
+.. function:: asTn(arr::Array, td::Timenum)
+
+   Extend  row or column vector to size of `Timenum` object similar
+   to `repmat` and return it as `Timenum` object with equal index and
+   names.
+
+.. function:: asTm(arr::Array, td::Timematr)
+
+   Extend  row or column vector to size of `Timematr` object similar
+   to `repmat` and return it as `Timematr` object with equal index and
+   names.
+
 DataFrame extensions
 --------------------
 
