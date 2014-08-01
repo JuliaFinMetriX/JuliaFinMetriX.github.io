@@ -14,12 +14,35 @@ Access data
 
 .. function:: get(td::AbstractTimedata, idx1::Int, idx2::Int)
 
-   Get entry [idx1, idx2] of TimeData object.
+   Get single entry [idx1, idx2] of TimeData object.
 
-   .. function:: get(td::AbstractTimedata)
+.. function:: get(td::AbstractTimedata)
 
-   Get all entries of TimeData object as Array
+   Get all entries of TimeData object as Array.
 
+
+Basic functions
+---------------
+
+.. function:: isna(td::AbstractTimedata)
+
+   Elementwise testing for `NA`. Returns boolean values as Timedata
+   object.
+
+.. function:: complete_cases(td::AbstractTimedata)
+
+.. function:: setNA!(td::AbstractTimedata, rowIdx::Int, colIdx::Int)
+
+   Set a given entry to `NA`. Could require change of column type to
+   `DataArray`. Throws error for `Timematr`.
+
+.. function:: hcat(inst::AbstractTimedata, inst2::AbstractTimedata)
+
+   Horizontally concatenation of TimeData objects. Requires objects to
+   be of equal type with completely equal time indices. Result will be
+   of same type as input arguments.
+
+   
 DataFrame extensions
 --------------------
 
