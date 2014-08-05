@@ -12,6 +12,14 @@ Access data
 
    Get column names.
 
+.. function:: idxtype(td::AbstractTimedata)
+
+   Get type of `idx`.
+
+.. function:: core(td::AbstractTimedata)
+
+   Equal to `get`, only for `Timematr` output will be `Array{Float}`. 
+
 .. function:: get(td::AbstractTimedata, idx1::Int, idx2::Int)
 
    Get single entry [idx1, idx2] of TimeData object.
@@ -20,9 +28,23 @@ Access data
 
    Get all entries of TimeData object as Array.
 
+.. function:: complete_cases(td::AbstractTimedata)
+              
+   Return `Array{Bool}` with `true` for rows without `NA` values.
+              
 
 Basic functions
 ---------------
+
+.. function:: size(tn::AbstractTimedata)
+
+.. function:: size(tn::AbstractTimedata, ind::Int)
+
+.. function:: ndims(tn::AbstractTimedata)
+
+
+Testing object properties
+-------------------------
 
 .. function:: isequal(tn::AbstractTimedata, tn2::AbstractTimedata)
 
@@ -34,18 +56,30 @@ Basic functions
    Test for equal indices, names, types and values. `NA` is not
    counted as equal to `NA`.
 
+
+.. function:: isequalElemwise(tn::AbstractTimedata, tn2::AbstractTimedata)
+
+   Element-wise comparison with `isequal`. Return `Timedata` with
+   boolean values.
+
+.. function::  issimilar(td1::AbstractTimedata, td2::AbstractTimedata)
+
+   Test for equal meta-data: type, column names and indices.
+   
 .. function:: isna(td::AbstractTimedata)
 
-   Elementwise testing for `NA`. Returns boolean values as Timedata
+   Element-wise testing for `NA`. Returns boolean values as Timedata
    object.
+
+
+Type preserving functions
+-------------------------
 
 .. function:: setNA!(td::AbstractTimedata, rowIdx::Int, colIdx::Int)
 
    Set a given entry to `NA`. Could require change of column type to
    `DataArray`. Throws error for `Timematr`.
 
-.. function:: complete_cases(td::AbstractTimedata)
-              
 .. function:: hcat(inst::AbstractTimedata, inst2::AbstractTimedata)
 
    Horizontal concatenation of TimeData objects. Requires objects to
@@ -66,10 +100,18 @@ Basic functions
 
    Variable argument extension of `vcat`.
 
+.. function:: flipud(inst::AbstractTimedata)
+
+   Flip `TimeData` object upside down.
+   
 .. function:: narm(td::AbstractTimedata)
 
-   Return copy of td with all rows containing `NA` removed.
+   Return copy of td with all rows removed that were containing `NA`.
 
+
+Conversion functions
+-------------------
+   
 .. function:: asArrayOfEqualDimensions(arr::Array,
               td::AbstractTimedata)
 
@@ -93,6 +135,8 @@ Basic functions
    Extend  row or column vector to size of `Timematr` object similar
    to `repmat` and return it as `Timematr` object with equal index and
    names.
+
+   
 
 DataFrame extensions
 --------------------
