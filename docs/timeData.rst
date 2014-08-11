@@ -14,11 +14,11 @@ Access data
 
 .. function:: idxtype(td::AbstractTimedata)
 
-   Get type of `idx`.
+   Get type of ``idx``.
 
 .. function:: core(td::AbstractTimedata)
 
-   Equal to `get`, only for `Timematr` output will be `Array{Float}`. 
+   Equal to ``get``, only for ``Timematr`` output will be ``Array{Float}``. 
 
 .. function:: get(td::AbstractTimedata, idx1::Int, idx2::Int)
 
@@ -30,25 +30,25 @@ Access data
 
 .. function:: complete_cases(td::AbstractTimedata)
               
-   Return `Array{Bool}` with `true` for rows without `NA` values.
+   Return ``Array{Bool}`` with ``true`` for rows without ``NA`` values.
 
 Show entries
 ------------
 
-Accessing entries through `getindex` methods will always preserve a
+Accessing entries through ``getindex`` methods will always preserve a
 rectangular table data structure: the output is an intersection of a
-subset of indices with a subset of columns. In contrast, `showEntries`
+subset of indices with a subset of columns. In contrast, ``showEntries``
 methods allow to access data without rectangular structure. This way,
 for example, entry (1,2) and entry (2,1) could be jointly accessed,
 without simultaneously returning entries (1,1) and (2,2). The output
-of `showEntries` always is of type `Timedata`, with columns `variable`
-and `value`.
+of ``showEntries`` always is of type ``Timedata``, with columns ``variable``
+and ``value``.
 
 .. function:: showEntries(td::AbstractTimedata, f::Function; sort="dates")
 
-   Show all entries where function f returns `true`. By default,
+   Show all entries where function f returns ``true``. By default,
    return values in row major order: for each date try all variables.
-   Column major order can be achieved through `sort="variables"`.
+   Column major order can be achieved through ``sort="variables"``.
 
 .. function:: showEntries(td::AbstractTimedata, singleInd::Array{Int}) 
 
@@ -68,8 +68,8 @@ Editing entries
 
 .. function:: setNA!(td::AbstractTimedata, rowIdx::Int, colIdx::Int)
 
-   Set entry given by subscript indexing to `NA`. Throws error for
-   objects of type `Timematr`.
+   Set entry given by subscript indexing to ``NA``. Throws error for
+   objects of type ``Timematr``.
 
 .. function:: setindex!(td::Timedata, value::Any, rowIdx::Int, colIdx::Int)
 
@@ -90,18 +90,18 @@ Testing object properties
 
 .. function:: isequal(tn::AbstractTimedata, tn2::AbstractTimedata)
 
-   Test for equal indices, names, types and values. `NA` is equal to
-   `NA`.
+   Test for equal indices, names, types and values. ``NA`` is equal to
+   ``NA``.
 
 .. function:: ==(tn::AbstractTimedata, tn2::AbstractTimedata)
 
-   Test for equal indices, names, types and values. `NA` is not
-   counted as equal to `NA`.
+   Test for equal indices, names, types and values. ``NA`` is not
+   counted as equal to ``NA``.
 
 
 .. function:: isequalElemwise(tn::AbstractTimedata, tn2::AbstractTimedata)
 
-   Element-wise comparison with `isequal`. Return `Timedata` with
+   Element-wise comparison with ``isequal``. Return ``Timedata`` with
    boolean values.
 
 .. function::  issimilar(td1::AbstractTimedata, td2::AbstractTimedata)
@@ -110,7 +110,7 @@ Testing object properties
    
 .. function:: isna(td::AbstractTimedata)
 
-   Element-wise testing for `NA`. Returns boolean values as Timedata
+   Element-wise testing for ``NA``. Returns boolean values as Timedata
    object.
 
 
@@ -119,8 +119,8 @@ Type preserving functions
 
 .. function:: setNA!(td::AbstractTimedata, rowIdx::Int, colIdx::Int)
 
-   Set a given entry to `NA`. Could require change of column type to
-   `DataArray`. Throws error for `Timematr`.
+   Set a given entry to ``NA``. Could require change of column type to
+   ``DataArray``. Throws error for ``Timematr``.
 
 .. function:: hcat(inst::AbstractTimedata, inst2::AbstractTimedata)
 
@@ -130,7 +130,7 @@ Type preserving functions
 
 .. function:: hcat(inst::AbstractTimedata...)
 
-   Variable argument extension of `hcat`.
+   Variable argument extension of ``hcat``.
 
 .. function:: vcat(inst::AbstractTimedata, inst2::AbstractTimedata)
 
@@ -140,15 +140,15 @@ Type preserving functions
 
 .. function:: vcat(inst::AbstractTimedata...)
 
-   Variable argument extension of `vcat`.
+   Variable argument extension of ``vcat``.
 
 .. function:: flipud(inst::AbstractTimedata)
 
-   Flip `TimeData` object upside down.
+   Flip ``TimeData`` object upside down.
    
 .. function:: narm(td::AbstractTimedata)
 
-   Return copy of td with all rows removed that were containing `NA`.
+   Return copy of td with all rows removed that were containing ``NA``.
 
 
 Conversion functions
@@ -162,20 +162,20 @@ Conversion functions
 
 .. function:: asTd(arr::Array, td::Timedata)
 
-   Extend  row or column vector to size of `Timedata` object similar
-   to `repmat` and return it as `Timedata` object with equal index and
+   Extend  row or column vector to size of ``Timedata`` object similar
+   to ``repmat`` and return it as ``Timedata`` object with equal index and
    names. 
 
 .. function:: asTn(arr::Array, td::Timenum)
 
-   Extend  row or column vector to size of `Timenum` object similar
-   to `repmat` and return it as `Timenum` object with equal index and
+   Extend  row or column vector to size of ``Timenum`` object similar
+   to ``repmat`` and return it as ``Timenum`` object with equal index and
    names.
 
 .. function:: asTm(arr::Array, td::Timematr)
 
-   Extend  row or column vector to size of `Timematr` object similar
-   to `repmat` and return it as `Timematr` object with equal index and
+   Extend  row or column vector to size of ``Timematr`` object similar
+   to ``repmat`` and return it as ``Timematr`` object with equal index and
    names.
 
    
