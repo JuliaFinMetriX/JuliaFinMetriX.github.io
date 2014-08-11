@@ -31,8 +31,50 @@ Access data
 .. function:: complete_cases(td::AbstractTimedata)
               
    Return `Array{Bool}` with `true` for rows without `NA` values.
-              
 
+Show entries
+------------
+
+Accessing entries through `getindex` methods will always preserve a
+rectangular table data structure: the output is an intersection of a
+subset of indices with a subset of columns. In contrast, `showEntries`
+methods allow to access data without rectangular structure. This way,
+for example, entry (1,2) and entry (2,1) could be jointly accessed,
+without simultaneously returning entries (1,1) and (2,2). The output
+of `showEntries` always is of type `Timedata`, with columns `variable`
+and `value`.
+
+.. function:: showEntries(td::AbstractTimedata, f::Function; sort="dates")
+
+   Show all entries where function f returns `true`. By default,
+   return values in row major order: for each date try all variables.
+   Column major order can be achieved through `sort="variables"`.
+
+.. function:: showEntries(td::AbstractTimedata, singleInd::Array{Int}) 
+
+   Show entries given by linear indexing.
+
+.. function:: showEntries(td::AbstractTimedata, rowInds::Array{Int}, colInds::Array{Int})
+
+   Show entries given by subscript indexing.
+
+.. function:: showEntries(td::AbstractTimedata, td2::AbstractTimedata)
+
+   Show entries by element-wise logical indexing.
+
+
+Editing entries
+---------------
+
+.. function:: setNA!(td::AbstractTimedata, rowIdx::Int, colIdx::Int)
+
+   Set entry given by subscript indexing to `NA`. Throws error for
+   objects of type `Timematr`.
+
+.. function:: setindex!(td::Timedata, value::Any, rowIdx::Int, colIdx::Int)
+
+   Set entry given by subscript indexing to a given value. 
+   
 Basic functions
 ---------------
 
