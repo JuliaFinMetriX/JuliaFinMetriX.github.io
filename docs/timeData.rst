@@ -74,7 +74,17 @@ Editing entries
 .. function:: setindex!(td::Timedata, value::Any, rowIdx::Int, colIdx::Int)
 
    Set entry given by subscript indexing to a given value. 
-   
+
+.. function:: setindex!(td::AbstractTimenum, value::Any, rowIdx::Int, colIdx::Int)
+
+   Set entry given by subscript indexing to a given value.
+
+.. function:: impute!(td::AbstractTimedata, with="last")
+
+   Replace ``NA`` with some value. Implemented options are ``last`` to
+   use the last available observation, ``next`` to use the next
+   available option, ``zero`` to insert a value of 0 for each ``NA``.
+
 Basic functions
 ---------------
 
@@ -112,6 +122,11 @@ Testing object properties
 
    Element-wise testing for ``NA``. Returns boolean values as Timedata
    object.
+
+.. function:: isapprox(tn::AbstractTimedata, tn2::AbstractTimedata)
+
+   Test for equal indices, names, types and approximately equal
+   values. Alleviates unit tests for values of type ``Float``.
 
 
 Type preserving functions
