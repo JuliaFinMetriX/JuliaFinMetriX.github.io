@@ -84,6 +84,14 @@ Editing entries
    Replace ``NA`` with some value. Implemented options are ``last`` to
    use the last available observation, ``next`` to use the next
    available option, ``zero`` to insert a value of 0 for each ``NA``.
+   ``single last`` only uses the last observation if there is a single
+   ``NA`` in succession. For two or more successive values of ``NA``
+   no imputation occurs. A single ``NA`` in the last row will be
+   treated as if observations would follow, so that it gets replaced.
+   Consecutive occurrences of ``NA`` at the beginning of the sample
+   will be left untouched with options ``last`` and ``single last``.
+   Same holds for consecutive occurrences of ``NA`` at the end of the
+   sample for option ``next``.
 
 Basic functions
 ---------------
