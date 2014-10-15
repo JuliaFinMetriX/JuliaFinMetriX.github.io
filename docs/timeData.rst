@@ -17,8 +17,8 @@ Access metadata
    Get type of ``idx``.
 
 
-Access data as ``Array``
-------------------------
+Access data as Array
+--------------------
 
 .. function:: get(td::AbstractTimedata, idx1::Int, idx2::Int)
 
@@ -46,8 +46,8 @@ Access data as ``Array``
    2}`` through: ``getAs(tm, Float64, NaN)``.
 
    
-Access data as ``DataFrame``
-----------------------------
+Access data as DataFrame
+------------------------
 
 .. function:: convert(::DataFrame, td::AbstractTimedata)
 
@@ -62,12 +62,16 @@ Dealing with ``NAs``
    Return ``Array{Bool}`` with ``true`` for rows without ``NA``
    values.
 
+.. function:: narm(td::AbstractTimedata)
+
+   Get complete cases: return copy of td with all rows removed that
+   were containing ``NA``.
+
 .. function:: rmDatesOnlyNAs(tn::AbstractTimedata)
 
    Remove all dates that contain strictly missing values ``NA``.
    Required format, for example, for plotting with Gadfly.
 
-   
 
 Show entries
 ------------
@@ -160,18 +164,24 @@ Testing object properties
    counted as equal to ``NA``. Output is a single value of type
    ``Bool``. 
 
+.. function:: .==(tn::AbstractTimedata, tn2::AbstractTimedata)
+
+   Element-wise test for equal values: ``NA`` is not counted as equal
+   to ``NA``. Returns ``Timedata`` with boolean values, or error if
+   meta-data is not matching.
+
 .. function:: isapprox(tn::AbstractTimedata, tn2::AbstractTimedata)
 
    Test for equal indices, names, types and approximately equal
    values. Alleviates unit tests for values of type ``Float``. Output is
    a single value of type ``Bool``.
    
-.. function::  issimilar(td1::AbstractTimedata, td2::AbstractTimedata)
+.. function::  equMeta(td1::AbstractTimedata, td2::AbstractTimedata)
 
    Test for equal meta-data: type, column names and indices. Output is
    a single value of type ``Bool``.
 
-.. function:: hasSimilarColumns(td1::AbstractTimedata, td2::AbstractTimedata)
+.. function:: equColMeta(td1::AbstractTimedata, td2::AbstractTimedata)
 
    Test for equal meta-data of columns (dates are left unconsidered):
    type and column names. Output is a single value of type ``Bool``.
@@ -237,12 +247,6 @@ Type preserving functions
 
    Flip ``TimeData`` object upside down.
    
-.. function:: narm(td::AbstractTimedata)
-
-   Get complete cases: return copy of td with all rows removed that
-   were containing ``NA``.
-
-
 Conversion functions
 -------------------
    
@@ -269,7 +273,9 @@ Conversion functions
    to ``repmat`` and return it as ``Timematr`` object with equal index and
    names.
 
-   
+.. function:: convert(::Type{AbstractTimedata}, ta::TimeArray)
+
+   Convert ``TimeArray`` to ``TimeData`` object.
 
 DataFrame extensions
 --------------------
