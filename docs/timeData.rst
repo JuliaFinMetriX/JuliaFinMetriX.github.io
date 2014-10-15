@@ -136,6 +136,33 @@ Testing object properties
    Test for equal indices, names, types and approximately equal
    values. Alleviates unit tests for values of type ``Float``.
 
+Formatting functions
+--------------------
+
+.. function:: rmDatesOnlyNAs(tn::AbstractTimedata)
+
+   Remove all dates that contain strictly missing values ``NA``.
+   Required format, for example, for plotting with Gadfly.
+
+.. function:: datesAsStrings(dats::Array{Date, 1})
+
+   Convert vector of dates into ``Array{ASCIIString, n}``.
+
+.. function:: datesAsStrings(tm::AbstractTimedata)
+
+   Take ``TimeData`` object and convert its vector of dates into
+   ``Array(ASCIIString, n)``. 
+
+.. function:: datesAsNumbers(dats::Array{Date, 1})
+
+   Convert vector of dates into ``Array{Float64, n}``.
+
+   .. function:: datesAsNumbers(tm::AbstractTimedata)
+
+   Take ``TimeData`` object and convert its vector of dates into
+   numbers: ``Array{Float64, n}`` for ``Date`` and ``DateTime``
+   entries.
+   
 
 Type preserving functions
 -------------------------
