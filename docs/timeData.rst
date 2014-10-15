@@ -110,8 +110,8 @@ Editing entries
 
 .. function:: setNA!(td::AbstractTimedata, rowIdx::Int, colIdx::Int)
 
-   Set entry given by subscript indexing to ``NA``. Throws error for
-   objects of type ``Timematr``.
+   Set a given entry to ``NA``. Could require change of column type to
+   ``DataArray``. Throws error for ``Timematr``.
 
 .. function:: setindex!(td::Timedata, value::Any, rowIdx::Int, colIdx::Int)
 
@@ -217,11 +217,6 @@ Date formatting functions
 
 Type preserving functions
 -------------------------
-
-.. function:: setNA!(td::AbstractTimedata, rowIdx::Int, colIdx::Int)
-
-   Set a given entry to ``NA``. Could require change of column type to
-   ``DataArray``. Throws error for ``Timematr``.
 
 .. function:: hcat(inst::AbstractTimedata, inst2::AbstractTimedata)
 
