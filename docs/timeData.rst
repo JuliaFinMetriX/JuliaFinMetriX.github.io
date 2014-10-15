@@ -1,8 +1,8 @@
 TimeData
 ========
 
-Access data
------------
+Access metadata
+---------------
 
 .. function:: idx(td::AbstractTimedata)
 
@@ -16,9 +16,9 @@ Access data
 
    Get type of ``idx``.
 
-.. function:: core(td::AbstractTimedata)
 
-   Equal to ``get``, only for ``Timematr`` output will be ``Array{Float}``. 
+Access data as ``Array``
+------------------------
 
 .. function:: get(td::AbstractTimedata, idx1::Int, idx2::Int)
 
@@ -26,23 +26,61 @@ Access data
 
 .. function:: get(td::AbstractTimedata)
 
-   Get all entries of TimeData object as Array.
+   Get all entries of TimeData object as ``Array`` through comprehension.
 
+.. function:: core(td::AbstractTimedata)
+
+   Equal to ``get`` except for ``Timematr``.
+
+.. function:: core(tm::Timematr)
+
+   Return data as ``Array{Float64}``.
+
+.. function:: getAs(tn::AbstractTimedata, typ::Type=Any, replaceNA=NA)
+
+   Get all entries as ``Array``. In order to avoid ``Array{Any, 2}``
+   as outcome, the entries can be promoted to a given ``Type`` through
+   argument ``typ``. Missing values can be dealt with through a third
+   argument ``replaceNA``, which replaces occurring ``NAs``. For
+   example, ``Timenum`` ``tm`` can be transformed to ``Array{Float64,
+   2}`` through: ``getAs(tm, Float64, NaN)``.
+
+   
+Access data as ``DataFrame``
+----------------------------
+
+.. function:: convert(::DataFrame, td::AbstractTimedata)
+
+   Convert ``Timedata`` object to ``DataFrame`` by prepending index
+   column as column `:idx`.
+   
+Dealing with ``NAs``
+--------------------
+   
 .. function:: complete_cases(td::AbstractTimedata)
               
-   Return ``Array{Bool}`` with ``true`` for rows without ``NA`` values.
+   Return ``Array{Bool}`` with ``true`` for rows without ``NA``
+   values.
+
+.. function:: rmDatesOnlyNAs(tn::AbstractTimedata)
+
+   Remove all dates that contain strictly missing values ``NA``.
+   Required format, for example, for plotting with Gadfly.
+
+   
 
 Show entries
 ------------
 
 Accessing entries through ``getindex`` methods will always preserve a
 rectangular table data structure: the output is an intersection of a
-subset of indices with a subset of columns. In contrast, ``showEntries``
-methods allow to access data without rectangular structure. This way,
-for example, entry (1,2) and entry (2,1) could be jointly accessed,
-without simultaneously returning entries (1,1) and (2,2). The output
-of ``showEntries`` always is of type ``Timedata``, with columns ``variable``
-and ``value``.
+subset of indices with a subset of columns. In contrast,
+``showEntries`` methods allow to access data without rectangular
+structure as stacked data. This way, for example, entry (1,2) and
+entry (2,1) could be jointly accessed, without simultaneously
+returning entries (1,1) and (2,2). The output of ``showEntries``
+always is of type ``Timedata``, with columns ``variable`` and
+``value``.
 
 .. function:: showEntries(td::AbstractTimedata, f::Function; sort="dates")
 
@@ -109,40 +147,43 @@ Testing object properties
 .. function:: isequal(tn::AbstractTimedata, tn2::AbstractTimedata)
 
    Test for equal indices, names, types and values. ``NA`` is equal to
-   ``NA``.
+   ``NA``. Output is a single value of type ``Bool``.
+
+.. function:: isequalElw(tn::AbstractTimedata, tn2::AbstractTimedata)
+
+   Element-wise comparison with ``isequal``. Returns ``Timedata`` with
+   boolean values.
 
 .. function:: ==(tn::AbstractTimedata, tn2::AbstractTimedata)
 
    Test for equal indices, names, types and values. ``NA`` is not
-   counted as equal to ``NA``.
-
-
-.. function:: isequalElemwise(tn::AbstractTimedata, tn2::AbstractTimedata)
-
-   Element-wise comparison with ``isequal``. Return ``Timedata`` with
-   boolean values.
-
-.. function::  issimilar(td1::AbstractTimedata, td2::AbstractTimedata)
-
-   Test for equal meta-data: type, column names and indices.
-   
-.. function:: isna(td::AbstractTimedata)
-
-   Element-wise testing for ``NA``. Returns boolean values as Timedata
-   object.
+   counted as equal to ``NA``. Output is a single value of type
+   ``Bool``. 
 
 .. function:: isapprox(tn::AbstractTimedata, tn2::AbstractTimedata)
 
    Test for equal indices, names, types and approximately equal
-   values. Alleviates unit tests for values of type ``Float``.
+   values. Alleviates unit tests for values of type ``Float``. Output is
+   a single value of type ``Bool``.
+   
+.. function::  issimilar(td1::AbstractTimedata, td2::AbstractTimedata)
 
-Formatting functions
---------------------
+   Test for equal meta-data: type, column names and indices. Output is
+   a single value of type ``Bool``.
 
-.. function:: rmDatesOnlyNAs(tn::AbstractTimedata)
+.. function:: hasSimilarColumns(td1::AbstractTimedata, td2::AbstractTimedata)
 
-   Remove all dates that contain strictly missing values ``NA``.
-   Required format, for example, for plotting with Gadfly.
+   Test for equal meta-data of columns (dates are left unconsidered):
+   type and column names. Output is a single value of type ``Bool``.
+   
+.. function:: isnaElw(td::AbstractTimedata)
+
+   Element-wise testing for ``NA``. Returns boolean values as Timedata
+   object.
+
+
+Date formatting functions
+-------------------------
 
 .. function:: datesAsStrings(dats::Array{Date, 1})
 
@@ -157,7 +198,7 @@ Formatting functions
 
    Convert vector of dates into ``Array{Float64, n}``.
 
-   .. function:: datesAsNumbers(tm::AbstractTimedata)
+.. function:: datesAsNumbers(tm::AbstractTimedata)
 
    Take ``TimeData`` object and convert its vector of dates into
    numbers: ``Array{Float64, n}`` for ``Date`` and ``DateTime``
@@ -198,14 +239,14 @@ Type preserving functions
    
 .. function:: narm(td::AbstractTimedata)
 
-   Return copy of td with all rows removed that were containing ``NA``.
+   Get complete cases: return copy of td with all rows removed that
+   were containing ``NA``.
 
 
 Conversion functions
 -------------------
    
-.. function:: asArrayOfEqualDimensions(arr::Array,
-              td::AbstractTimedata)
+.. function:: asArrayOfEqualDimensions(arr::Array, td::AbstractTimedata)
 
    Extend row or column vector to two-dimensional array through
    copying values.
