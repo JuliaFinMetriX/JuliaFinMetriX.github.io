@@ -51,14 +51,19 @@ Manual post-processing:
 #+END_COMMENT
 
 ** Registered packages
-- [[http://juliafinmetrix.github.io/TimeData.jl/][TimeData]]:
+- [[http://juliafinmetrix.github.io/TimeData.jl/][TimeData]]
   - [[https://travis-ci.org/JuliaFinMetriX/TimeData.jl][https://travis-ci.org/JuliaFinMetriX/TimeData.jl.png]]
   - [[https://coveralls.io/r/JuliaFinMetriX/TimeData.jl?branch%3Dmaster][https://coveralls.io/repos/JuliaFinMetriX/TimeData.jl/badge.png]]
   - [[http://pkg.julialang.org/?pkg%3DTimeData&ver%3Drelease][http://pkg.julialang.org/badges/TimeData_release.svg]]
   - [[http://dx.doi.org/10.5281/zenodo.12003][https://zenodo.org/badge/doi/10.5281/zenodo.12003.png]]
+- [[http://juliafinmetrix.github.io/EconDatasets.jl/][EconDatasets]]
+  - [[https://travis-ci.org/JuliaFinMetriX/EconDatasets.jl][https://travis-ci.org/JuliaFinMetriX/EconDatasets.jl.png]]
+  - [[https://coveralls.io/r/JuliaFinMetriX/EconDatasets.jl?branch%3Dmaster][https://coveralls.io/repos/JuliaFinMetriX/EconDatasets.jl/badge.png]]
+- WorldBankData
+  - [[https://travis-ci.org/JuliaFinMetriX/WorldBankData.jl][https://travis-ci.org/JuliaFinMetriX/WorldBankData.jl.svg]]
+  - [[https://coveralls.io/r/JuliaFinMetriX/WorldBankData.jl][https://coveralls.io/repos/JuliaFinMetriX/WorldBankData.jl/badge.png]]
 
 ** Unregistered packages
-- [[http://juliafinmetrix.github.io/EconDatasets.jl/][EconDatasets]]
 - [[http://juliafinmetrix.github.io/Econometrics.jl/][Econometrics]]
 
 ** Standard library
