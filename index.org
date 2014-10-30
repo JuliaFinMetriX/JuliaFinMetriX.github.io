@@ -59,7 +59,7 @@ Manual post-processing:
 - [[http://juliafinmetrix.github.io/EconDatasets.jl/][EconDatasets]]
   - [[https://travis-ci.org/JuliaFinMetriX/EconDatasets.jl][https://travis-ci.org/JuliaFinMetriX/EconDatasets.jl.png]]
   - [[https://coveralls.io/r/JuliaFinMetriX/EconDatasets.jl?branch%3Dmaster][https://coveralls.io/repos/JuliaFinMetriX/EconDatasets.jl/badge.png]]
-- WorldBankData
+- [[http://juliafinmetrix.github.io/WorldBankData.jl/][WorldBankData]]
   - [[https://travis-ci.org/JuliaFinMetriX/WorldBankData.jl][https://travis-ci.org/JuliaFinMetriX/WorldBankData.jl.svg]]
   - [[https://coveralls.io/r/JuliaFinMetriX/WorldBankData.jl][https://coveralls.io/repos/JuliaFinMetriX/WorldBankData.jl/badge.png]]
 
