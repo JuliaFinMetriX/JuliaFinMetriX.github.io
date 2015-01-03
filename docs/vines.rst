@@ -1,6 +1,20 @@
 Vines
 =====
 
+``Vines`` are basically an array of ``Trees``, stored in a more
+concise notation as one single matrix (each tree is given as column
+vector in parent notation). ``Trees`` also do not need to be fully
+specified: they do not necessarily need to comprise all variables. For
+example, when successively building ``Vines``, ``Trees`` are built up
+only gradually. If unfinished ``Trees`` get converted to ``Vines``,
+missing variables will have undefined values (this might be unstable,
+however, in its current version).
+
+Basically, ``Vines`` are a memory efficient way of storing multiple
+trees, while any analysis needs to be built on actual ``Trees``
+anyways.
+
+
 Tree lengths
 ------------
 
@@ -57,3 +71,11 @@ Tree / vine interfaces
 .. function:: tree2par(tPs::Array{Tree, 1}, nVars::Int)
 
    Transform array of trees to parent notation matrix.
+
+.. function:: vine2trees(vn::Vine)
+
+   Transform ``Vine`` to array of ``Trees``.
+
+.. function:: trees2vine(trs::Array{Tree, 1}, nVars::Int)
+
+   Transform array of ``Trees`` to ``Vine``.
