@@ -20,6 +20,13 @@ layout: default
   - [<img src="https://travis-ci.org/JuliaFinMetriX/WorldBankDataTd.jl.svg">](https://travis-ci.org/JuliaFinMetriX/WorldBankDataTd.jl)
   - [<img src="https://coveralls.io/repos/JuliaFinMetriX/WorldBankDataTd.jl/badge.png">](https://coveralls.io/r/JuliaFinMetriX/WorldBankDataTd.jl)
 - [Copulas](http://juliafinmetrix.github.io/Copulas.jl/)
+  - [![Build
+    Status](https://travis-ci.org/JuliaFinMetriX/Copulas.jl.svg?branch=master)](https://travis-ci.org/JuliaFinMetriX/Copulas.jl)
+  - [![Coverage
+    Status](https://coveralls.io/repos/JuliaFinMetriX/Copulas.jl/badge.svg?branch=master)](https://coveralls.io/r/JuliaFinMetriX/Copulas.jl?branch=master)
+- [JFinM_Charts](https://github.com/JuliaFinMetriX/JFinM_Charts)
+  - [![Build Status](https://travis-ci.org/JuliaFinMetriX/Copulas.jl.svg?branch=master)](https://travis-ci.org/JuliaFinMetriX/Copulas.jl)
+  - [![Coverage Status](https://coveralls.io/repos/JuliaFinMetriX/JFinM_Charts/badge.svg)](https://coveralls.io/r/JuliaFinMetriX/JFinM_Charts)
 - [Econometrics](http://juliafinmetrix.github.io/Econometrics.jl/)
 
 ## Standard library
