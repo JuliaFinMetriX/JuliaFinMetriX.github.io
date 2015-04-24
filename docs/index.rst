@@ -19,6 +19,7 @@ Packages:
    econometrics
    timeData
    vines
+   ctrees
    
 
 
