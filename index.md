@@ -25,7 +25,7 @@ layout: default
   - [![Coverage
     Status](https://coveralls.io/repos/JuliaFinMetriX/Copulas.jl/badge.svg?branch=master)](https://coveralls.io/r/JuliaFinMetriX/Copulas.jl?branch=master)
 - [JFinM_Charts](https://github.com/JuliaFinMetriX/JFinM_Charts)
-  - [![Build Status](https://travis-ci.org/JuliaFinMetriX/Copulas.jl.svg?branch=master)](https://travis-ci.org/JuliaFinMetriX/Copulas.jl)
+  - [![Build Status](https://travis-ci.org/JuliaFinMetriX/JFinM_Charts.svg?branch=master)](https://travis-ci.org/JuliaFinMetriX/JFinM_Charts.jl)
   - [![Coverage Status](https://coveralls.io/repos/JuliaFinMetriX/JFinM_Charts/badge.svg)](https://coveralls.io/r/JuliaFinMetriX/JFinM_Charts)
 - [Econometrics](http://juliafinmetrix.github.io/Econometrics.jl/)
 
